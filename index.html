@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SNOW MAP | 全国スキー場情報</title>
+    <meta name="description" content="全国のスキー場の天気・積雪量・営業状況をひとつのマップでチェック。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">SNOW MAP<span>.</span></a>
+
+        <nav class="nav">
+            <a href="#map-section">MAP</a>
+            <a href="#resorts-section">RESORTS</a>
+            <a href="#about-section">ABOUT</a>
+        </nav>
+
+        <a href="#map-section" class="header-button">
+            EXPLORE MAP <span>↗</span>
+        </a>
+    </header>
+
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-image"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <p class="eyebrow">JAPAN SKI RESORT GUIDE</p>
+
+                <h1>FIND YOUR<br>PERFECT SNOW.</h1>
+
+                <p class="hero-description">
+                    全国のスキー場情報を、ひとつのマップで。<br>
+                    天気・積雪・営業状況をチェックして、<br>
+                    次のゲレンデ選びをもっと自由に。
+                </p>
+
+                <a href="#map-section" class="primary-button">
+                    全国マップを見る <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-bottom">
+                <span>SNOW CONDITIONS / JAPAN</span>
+                <span>SCROLL TO EXPLORE ↓</span>
+            </div>
+        </section>
+
+
+        <!-- Map Section -->
+        <section class="map-section section" id="map-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE JAPAN</p>
+                    <h2>全国スキー場マップ</h2>
+                </div>
+
+                <p class="section-description">
+                    日本全国のスキー場をマップから探す。
+                </p>
+            </div>
+
+            <div class="map-layout">
+
+
+                <!-- Region Filter -->
+                <aside class="filter-panel">
+                    <h3>AREA</h3>
+                    <p class="filter-subtitle">地域から探す</p>
+
+                    <div class="region-list">
+
+                        <button class="region-button active" data-region="all">
+                            すべての地域
+                        </button>
+
+                        <button class="region-button" data-region="北海道">北海道</button>
+                        <button class="region-button" data-region="東北">東北</button>
+                        <button class="region-button" data-region="関東">関東</button>
+                        <button class="region-button" data-region="甲信越">甲信越</button>
+                        <button class="region-button" data-region="北陸">北陸</button>
+                        <button class="region-button" data-region="東海">東海</button>
+                        <button class="region-button" data-region="近畿">近畿</button>
+                        <button class="region-button" data-region="中国">中国</button>
+                        <button class="region-button" data-region="四国">四国</button>
+                        <button class="region-button" data-region="九州">九州</button>
+
+                    </div>
+
+                    <div class="filter-divider"></div>
+
+                    <h3>CONDITION</h3>
+                    <p class="filter-subtitle">営業状況</p>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="open-only">
+                        営業中のスキー場のみ
+                    </label>
+                </aside>
+
+
+                <!-- Map -->
+                <!--
+                <div class="map-container">
+                    <div id="map"></div>
+
+                    <div class="map-guide" id="map-guide">
+                        <div class="map-guide-content">
+                            <span>SELECT YOUR AREA</span>
+                            <p>お探しの地域を選択</p>
+                        </div>
+                    </div>
+
+                    <div class="map-caption">
+                        <span>JAPAN / SKI RESORTS</span>
+                        <span id="resort-count">0 RESORTS</span>
+                    </div>
+                </div> -->
+
+
+                <!-- Map -->
+                <div class="map-container">
+
+                    <div class="map-topbar">
+                        <div>
+                            <span class="map-label" id="map-stage-label">
+                                JAPAN / SNOW MAP
+                            </span>
+
+                            <p class="map-subtitle" id="map-stage-subtitle">
+                                EXPLORE THE SNOW COUNTRY
+                            </p>
+                        </div>
+
+                        <span id="resort-count">SELECT AREA</span>
+                    </div>
+
+
+                    <div class="map-stage">
+
+                        <!-- 01 JAPAN MAP -->
+                        <div id="japan-stage" class="map-view active">
+                            <div class="stage-heading">
+                                <span>01 / JAPAN</span>
+                                <h3>EXPLORE JAPAN</h3>
+                                <p>地域を選択してスキー場を探す</p>
+                            </div>
+
+                            <div id="japan-map">
+                                <!-- 日本地図SVGを読み込む -->
+                            </div>
+                        </div>
+
+                        <!-- 02 REGION MAP -->
+                        <div id="region-stage" class="map-view" hidden>
+                            <div id="map"></div>
+                        </div>
+
+                        <!-- 03 MOUNTAIN 3D -->
+                        <div id="mountain-stage" class="map-view" hidden>
+                            <div id="mountain-view"></div>
+
+                            <div class="mountain-overlay">
+                                <span>MOUNTAIN / 3D TERRAIN</span>
+                                <h3 id="mountain-title">SELECTED RESORT</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- MAP NAVIGATION -->
+                    <div class="map-navigation">
+                        <button id="map-back" type="button" hidden>
+                            ← BACK
+                        </button>
+
+                        <span id="map-stage-number">01 / 03</span>
+                    </div>
+
+
+                    <div class="map-bottom-bar">
+                        <span>SNOW MAP / JAPAN</span>
+                        <span>ALPINE ICE COLLECTION</span>
+                    </div>
+
+                </div>
+
+
+                <!-- Resort Detail Panel -->
+                <aside class="detail-panel" id="detail-panel">
+
+                    <div class="detail-empty" id="detail-empty">
+                        <span class="detail-icon">◎</span>
+                        <h3>SELECT A RESORT</h3>
+                        <p>
+                            地図上のマーカーを選択すると、<br>
+                            スキー場の詳細情報が表示されます。
+                        </p>
+                    </div>
+
+                    <div class="detail-content" id="detail-content" hidden>
+
+                        <div class="detail-top">
+                            <span class="eyebrow">RESORT INFORMATION</span>
+                            <button class="detail-close" id="detail-close" aria-label="詳細を閉じる">
+                                ×
+                            </button>
+                        </div>
+
+                        <p class="detail-region" id="detail-region"></p>
+
+                        <h2 id="detail-name"></h2>
+
+                        <p class="detail-status" id="detail-status"></p>
+
+                        <div class="detail-divider"></div>
+
+                        <h3>SNOW CONDITIONS</h3>
+
+                        <div class="detail-stats">
+
+                            <div class="detail-stat">
+                                <span>SNOW DEPTH</span>
+                                <strong id="detail-snow">--</strong>
+                                <small>積雪量</small>
+                            </div>
+
+                            <div class="detail-stat">
+                                <span>TEMPERATURE</span>
+                                <strong id="detail-temperature">--</strong>
+                                <small>気温</small>
+                            </div>
+
+                            <div class="detail-stat">
+                                <span>WEATHER</span>
+                                <strong id="detail-weather">--</strong>
+                                <small>天気</small>
+                            </div>
+
+                        </div>
+
+                        <div class="detail-divider"></div>
+
+                        <h3>RESORT STATUS</h3>
+
+                        <div class="detail-row">
+                            <span>営業コース</span>
+                            <strong id="detail-courses">--</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>運行リフト</span>
+                            <strong id="detail-lifts">--</strong>
+                        </div>
+
+                        <div class="detail-divider"></div>
+
+                        <a
+                            href="#"
+                            id="official-link"
+                            class="official-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            hidden
+                        >
+                            OFFICIAL WEBSITE <span>↗</span>
+                        </a>
+
+                        <p id="official-unavailable" class="official-unavailable" hidden>
+                            公式サイトのURLは未登録です。
+                        </p>
+
+                    </div>
+
+                </aside>
+
+            
+            </div>
+        </section>
+
+
+        <!-- Resort Section -->
+        <section class="resorts-section section" id="resorts-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">RESORT INFORMATION</p>
+                    <h2>スキー場を探す</h2>
+                </div>
+            </div>
+
+            <div class="resort-toolbar">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="スキー場名で検索..."
+                >
+
+                <select id="sort-select">
+                    <option value="default">おすすめ順</option>
+                    <option value="snow">積雪量が多い順</option>
+                    <option value="name">名前順</option>
+                </select>
+            </div>
+
+            <div class="resort-grid" id="resort-grid">
+                <!-- JavaScriptでスキー場カードを表示 -->
+            </div>
+
+        </section>
+
+
+        <!-- About -->
+        <section class="about-section section" id="about-section">
+            <p class="eyebrow">ABOUT SNOW MAP</p>
+            <h2>YOUR NEXT<br>SNOW ADVENTURE.</h2>
+            <p>
+                SNOW MAPは、全国のスキー場のコンディションを
+                簡単に比較・確認できるスキー場情報サイトです。
+            </p>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#" class="logo">SNOW MAP<span>.</span></a>
+        <p>© 2026 SNOW MAP. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- 3D GRAPHICS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    
+    <script src="app.js"></script>
+
+</body>
+</html>

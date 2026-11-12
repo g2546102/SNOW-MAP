@@ -1,0 +1,2495 @@
+/* =========================
+   BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f4ed;
+    color: #172c25;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+:root {
+    --green: #173d30;
+    --green-light: #315b49;
+    --cream: #f5f4ed;
+    --gray: #777d75;
+    --line: #d9dcd2;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    height: 76px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: "Outfit", sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #8ba994;
+}
+
+.nav {
+    display: flex;
+    gap: 38px;
+}
+
+.nav a {
+    font-family: "Outfit", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #7d9c83;
+}
+
+.header-button {
+    padding: 12px 20px;
+    background: var(--green);
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.header-button:hover {
+    background: var(--green-light);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    height: 760px;
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("images/hero.jpg");
+    background-size: cover;
+    background-position: center 55%;
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(13, 35, 29, 0.72),
+        rgba(13, 35, 29, 0.15)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 76px 8% 0;
+}
+
+.eyebrow {
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #8ba994;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(55px, 8vw, 112px);
+    line-height: 0.95;
+    letter-spacing: -5px;
+    font-weight: 700;
+}
+
+.hero-description {
+    margin-top: 32px;
+    font-size: 14px;
+    line-height: 2.2;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 35px;
+    padding: 17px 25px;
+    background: var(--green);
+    color: white;
+    border-radius: 30px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.primary-button:hover {
+    background: #527461;
+    transform: translateY(-3px);
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 6%;
+    right: 6%;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section {
+    padding: 110px 7%;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.section-description {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+.map-section {
+    background: #f0f1e9;
+}
+
+.map-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+}
+
+.filter-panel {
+    padding: 28px 22px;
+    background: #fafaf5;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+}
+
+.filter-panel h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.filter-subtitle {
+    margin: 7px 0 20px;
+    font-size: 11px;
+    color: var(--gray);
+}
+
+.region-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.region-button {
+    width: 100%;
+    padding: 11px 12px;
+    text-align: left;
+    border: none;
+    background: transparent;
+    color: #45534a;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.region-button:hover,
+.region-button.active {
+    background: var(--green);
+    color: white;
+}
+
+.filter-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 25px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    accent-color: var(--green);
+}
+
+.map-container {
+    position: relative;
+    min-width: 0;
+    height: 600px;
+    background: #e6e9df;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-caption {
+    position: absolute;
+    z-index: 500;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: rgba(250, 250, 245, 0.92);
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+
+/* =========================
+   RESORTS
+========================= */
+
+.resorts-section {
+    background: var(--cream);
+}
+
+.resort-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.resort-toolbar input,
+.resort-toolbar select {
+    padding: 13px 16px;
+    border: 1px solid var(--line);
+    background: #fafaf5;
+    color: var(--green);
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.resort-toolbar input {
+    width: 300px;
+}
+
+.resort-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.resort-card {
+    background: #fafaf5;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resort-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(23, 44, 37, 0.08);
+}
+
+.resort-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.resort-info {
+    padding: 20px;
+}
+
+.resort-region {
+    color: #829486;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.resort-name {
+    margin-top: 7px;
+    font-size: 18px;
+}
+
+.resort-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+}
+
+.resort-stats strong {
+    display: block;
+    margin-top: 5px;
+    font-family: "Outfit", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 130px 7%;
+}
+
+.about-section h2 {
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.about-section > p:last-child {
+    margin-top: 30px;
+    color: #d1ddd4;
+    font-size: 13px;
+    line-height: 2;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 35px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #122c23;
+    color: white;
+}
+
+.footer p {
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #aab8ae;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .region-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resort-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        height: 65px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav {
+        gap: 13px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    .header-button {
+        display: none;
+    }
+
+    .hero {
+        height: 680px;
+        min-height: 600px;
+    }
+
+    .hero-content {
+        padding: 65px 7% 0;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .section-description {
+        margin-top: 15px;
+    }
+
+    .map-container {
+        height: 430px;
+    }
+
+    .region-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .resort-toolbar {
+        flex-direction: column;
+    }
+
+    .resort-toolbar input {
+        width: 100%;
+    }
+
+    .resort-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+}
+/* =========================
+   ORIGINAL JAPAN MAP
+========================= */
+
+#map {
+    background-color: #e9ede3;
+
+    background-image:
+        repeating-radial-gradient(
+            ellipse at 50% 50%,
+            transparent 0px,
+            transparent 18px,
+            rgba(83, 112, 88, 0.08) 19px,
+            transparent 20px,
+            transparent 35px
+        );
+}
+
+
+/* 都道府県の境界線 */
+
+.leaflet-overlay-pane path {
+    transition: fill 0.3s;
+}
+
+.leaflet-overlay-pane path:hover {
+    fill: #7f9b83;
+}
+
+
+/* マーカー */
+
+.snow-marker {
+    background: none;
+    border: none;
+}
+
+.marker-pin {
+    width: 20px;
+    height: 20px;
+
+    background: #173d30;
+
+    border: 3px solid #f5f4ed;
+
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-pin span {
+    width: 5px;
+    height: 5px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+}
+
+
+/* ポップアップ */
+
+.map-popup {
+    min-width: 150px;
+    color: #173d30;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.map-popup strong {
+    font-size: 14px;
+}
+
+.map-popup p {
+    margin-top: 7px;
+    font-size: 11px;
+}
+
+
+/* 地図の操作ボタン */
+
+.leaflet-control-zoom a {
+    color: #173d30 !important;
+    background: #fafaf5 !important;
+    border-color: #d9dcd2 !important;
+}
+
+
+/* 地図の表示範囲 */
+
+.leaflet-container {
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+/* =========================
+   DETAIL PANEL
+========================= */
+
+.map-layout {
+    grid-template-columns: 200px minmax(0, 1fr) 320px;
+    align-items: stretch;
+}
+
+.detail-panel {
+    min-width: 0;
+    min-height: 600px;
+    padding: 25px 22px;
+    background: #fafaf5;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+}
+
+.detail-empty {
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.detail-icon {
+    font-family: "Outfit", sans-serif;
+    font-size: 45px;
+    color: #8ba994;
+    margin-bottom: 20px;
+}
+
+.detail-empty h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.detail-empty p {
+    margin-top: 15px;
+    color: var(--gray);
+    font-size: 11px;
+    line-height: 2;
+}
+
+.detail-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-top .eyebrow {
+    margin-bottom: 0;
+    font-size: 9px;
+}
+
+.detail-close {
+    border: none;
+    background: transparent;
+    font-size: 25px;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.detail-region {
+    margin-top: 25px;
+    color: #829486;
+    font-size: 11px;
+}
+
+.detail-content h2 {
+    margin-top: 8px;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.detail-status {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 10px;
+    background: #e9eee7;
+    color: var(--green);
+    font-size: 10px;
+    border-radius: 3px;
+}
+
+.detail-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 25px 0;
+}
+
+.detail-content h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 17px;
+}
+
+.detail-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.detail-stat {
+    padding: 14px 12px;
+    background: #f0f1e9;
+    border-radius: 4px;
+}
+
+.detail-stat:first-child {
+    grid-column: 1 / -1;
+}
+
+.detail-stat span {
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--gray);
+}
+
+.detail-stat strong {
+    display: block;
+    margin-top: 8px;
+    font-family: "Outfit", sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.detail-stat small {
+    display: block;
+    margin-top: 3px;
+    color: var(--gray);
+    font-size: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.detail-row strong {
+    color: var(--green);
+}
+
+.official-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--green);
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.official-button:hover {
+    background: var(--green-light);
+}
+
+.official-unavailable {
+    color: var(--gray);
+    font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE DETAIL PANEL
+========================= */
+
+@media (max-width: 1100px) {
+
+    .map-layout {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .detail-panel {
+        grid-column: 1 / -1;
+        min-height: auto;
+    }
+
+    .detail-empty {
+        min-height: 220px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-panel {
+        grid-column: auto;
+        padding: 22px;
+    }
+
+}
+
+/* =========================
+   CUSTOM MAP MARKER
+========================= */
+/*
+.snow-marker-wrapper {
+    background: transparent;
+    border: none;
+}
+
+.snow-marker {
+    width: 16px;
+    height: 16px;
+    background: #315b49;
+    border: 3px solid #f5f4ed;
+    border-radius: 50%;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.snow-marker-wrapper:hover .snow-marker {
+    transform: scale(1.4);
+} 
+*/
+
+/* =========================
+   SLIM SNOW MAP PIN
+========================= */
+/*
+.snow-marker-wrapper {
+    background: transparent;
+    border: none;
+}
+
+.snow-pin {
+    width: 18px;
+    height: 18px;
+    background: #315b49;
+    border: 2px solid #f5f4ed;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.snow-pin-center {
+    width: 5px;
+    height: 5px;
+    background: #f5f4ed;
+    border-radius: 50%;
+}
+
+.snow-marker-wrapper:hover .snow-pin {
+    background: #527b64;
+}
+*/
+
+/* =========================
+   MINIMAL SNOW MAP MARKER
+========================= */
+
+.snow-marker-wrapper {
+    background: transparent;
+    border: none;
+    overflow: visible;
+}
+
+.snow-pin {
+    width: 2px;
+    height: 24px;
+    margin: 0 auto;
+
+    background: #3b3a3a;
+
+    border-radius: 2px;
+
+    transform-origin: center bottom;
+    transition: transform 0.2s ease;
+}
+
+/* Selected Marker */
+
+.snow-pin.selected {
+    transform: scale(1.6);
+    background: #193d2e;
+}
+
+/* =========================
+   DETAIL PANEL POSITION FIX
+========================= */
+
+.detail-panel {
+    display: block;
+    position: relative;
+    padding: 25px 22px;
+    min-height: 600px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+/* 初期表示 */
+.detail-empty {
+    min-height: 548px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 詳細表示 */
+.detail-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* hiddenの優先 */
+.detail-content[hidden],
+.detail-empty[hidden] {
+    display: none !important;
+}
+
+
+/* =========================
+   REGION SELECTION GUIDE
+========================= */
+
+.map-guide {
+    position: absolute;
+    inset: 0;
+    z-index: 650;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(245, 244, 237, 0.18);
+}
+
+.map-guide-content {
+    padding: 28px 35px;
+    background: rgba(250, 250, 245, 0.94);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+.map-guide-content span {
+    display: block;
+    margin-bottom: 12px;
+    color: #829486;
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.map-guide-content p {
+    color: var(--green);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.map-guide[hidden] {
+    display: none !important;
+}
+
+/* 地図の移動を滑らかに見せる */
+.leaflet-fade-anim .leaflet-tile {
+    transition: opacity 0.25s linear;
+}
+
+
+
+/* =====================================
+   SNOW MAP - ALPINE ICE DESIGN SYSTEM
+===================================== */
+
+:root {
+    /* Main colors */
+    --snow-white: #F4F7F8;
+    --pure-snow: #FFFFFF;
+    --ice-gray: #EAF0F3;
+    --glacier-gray: #DCE8ED;
+
+    /* Accent colors */
+    --ice-blue: #A9C7D5;
+    --alpine-navy: #193D50;
+    --slate-blue: #527D91;
+
+    /* Text colors */
+    --text-main: #26343C;
+    --text-sub: #71818A;
+    --text-light: #A5B1B8;
+
+    /* Border and shadow */
+    --border: #D8E1E6;
+    --map-shadow: 0 18px 40px rgba(25, 61, 80, 0.12);
+
+    /* Layout */
+    --section-padding: 100px;
+    --panel-radius: 5px;
+}
+
+/* =====================================
+   GLOBAL DESIGN
+===================================== */
+
+body {
+    background: var(--snow-white);
+    color: var(--text-main);
+}
+
+/* Headings */
+
+h1,
+h2,
+h3 {
+    color: var(--alpine-navy);
+}
+
+/* Section labels */
+
+.eyebrow {
+    color: var(--slate-blue);
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    background: rgba(244, 247, 248, 0.96);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    color: var(--alpine-navy);
+}
+
+.logo span {
+    color: var(--ice-blue);
+}
+
+.nav a {
+    color: var(--text-main);
+}
+
+.nav a:hover {
+    color: var(--slate-blue);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.primary-button,
+.header-button {
+    background: var(--alpine-navy);
+    color: var(--pure-snow);
+    border: 1px solid var(--alpine-navy);
+    transition: 0.25s ease;
+}
+
+.primary-button:hover,
+.header-button:hover {
+    background: var(--slate-blue);
+    border-color: var(--slate-blue);
+}
+
+/* =====================================
+   MAP AREA
+===================================== */
+
+.map-section {
+    background: var(--snow-white);
+}
+
+.filter-panel,
+.detail-panel {
+    background: var(--pure-snow);
+    border: 1px solid var(--border);
+    border-radius: var(--panel-radius);
+}
+
+.region-button {
+    color: var(--text-main);
+    transition: 0.25s ease;
+}
+
+.region-button:hover {
+    background: var(--ice-gray);
+    color: var(--alpine-navy);
+}
+
+.region-button.active {
+    background: var(--alpine-navy);
+    color: var(--pure-snow);
+    border-color: var(--alpine-navy);
+}
+
+/* Map container */
+
+.map-container {
+    background: var(--ice-gray);
+    border: 1px solid var(--border);
+    box-shadow: var(--map-shadow);
+    border-radius: var(--panel-radius);
+}
+
+/* Map caption */
+
+.map-caption {
+    background: rgba(244, 247, 248, 0.94);
+    color: var(--alpine-navy);
+    border-top: 1px solid var(--border);
+}
+
+/* =====================================
+   DETAIL PANEL
+===================================== */
+
+.detail-panel h3 {
+    color: var(--alpine-navy);
+}
+
+.detail-region {
+    color: var(--slate-blue);
+}
+
+.detail-stat strong {
+    color: var(--alpine-navy);
+}
+
+.detail-divider {
+    background: var(--border);
+}
+
+.official-button {
+    background: var(--alpine-navy);
+    color: var(--pure-snow);
+}
+
+/* =====================================
+   RESORT CARDS
+===================================== */
+
+.resort-card {
+    background: var(--pure-snow);
+    border: 1px solid var(--border);
+    border-radius: var(--panel-radius);
+    transition: 0.25s ease;
+}
+
+.resort-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--map-shadow);
+}
+
+.resort-name {
+    color: var(--alpine-navy);
+}
+
+.resort-region,
+.resort-stats span {
+    color: var(--text-sub);
+}
+
+.resort-stats strong {
+    color: var(--alpine-navy);
+}
+
+/* =====================================
+   FORM ELEMENTS
+===================================== */
+
+input,
+select {
+    border: 1px solid var(--border);
+    background: var(--pure-snow);
+    color: var(--text-main);
+}
+
+input:focus,
+select:focus {
+    outline: 1px solid var(--ice-blue);
+    border-color: var(--slate-blue);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+    background: var(--alpine-navy);
+    color: var(--pure-snow);
+}
+
+.footer .logo {
+    color: var(--pure-snow);
+}
+
+
+
+/* =====================================
+   MAP EDITORIAL LAYOUT
+===================================== */
+
+.map-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #EAF0F3;
+    border: 1px solid #D8E1E6;
+    box-shadow: 0 18px 40px rgba(25, 61, 80, 0.10);
+}
+
+.map-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: #F4F7F8;
+    border-bottom: 1px solid #D8E1E6;
+    z-index: 500;
+}
+
+.map-label {
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #193D50;
+}
+
+.map-subtitle {
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #71818A;
+}
+
+#resort-count {
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #193D50;
+}
+
+#map {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #EAF0F3;
+}
+
+.map-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: #F4F7F8;
+    border-top: 1px solid #D8E1E6;
+    color: #71818A;
+    font-family: "Outfit", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 450px;
+    }
+
+    .map-topbar {
+        padding: 15px;
+    }
+
+    .map-bottom-bar {
+        padding: 10px 15px;
+        font-size: 8px;
+    }
+}
+
+
+/* =====================================
+   SNOW MAP - MULTI STAGE MAP SYSTEM
+===================================== */
+
+.map-stage {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: #EAF0F3;
+}
+
+.map-view {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map-view[hidden] {
+    display: none !important;
+}
+
+#japan-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #FFFFFF 0%,
+            #EAF0F3 75%
+        );
+}
+
+#japan-map {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#japan-map svg {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+#region-stage {
+    background: #EAF0F3;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#mountain-stage {
+    background: #DCE8ED;
+}
+
+#mountain-view {
+    width: 100%;
+    height: 100%;
+}
+
+.stage-heading {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.stage-heading span,
+.mountain-overlay span {
+    font-family: "Outfit", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #527D91;
+}
+
+.stage-heading h3 {
+    margin: 8px 0 4px;
+    font-size: 18px;
+}
+
+.stage-heading p {
+    font-size: 12px;
+    color: #71818A;
+}
+
+.mountain-overlay {
+    position: absolute;
+    left: 28px;
+    bottom: 28px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.mountain-overlay h3 {
+    margin-top: 8px;
+    color: #193D50;
+}
+
+.map-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-top: 1px solid #D8E1E6;
+    background: #FFFFFF;
+}
+
+#map-back {
+    border: 1px solid #D8E1E6;
+    background: #FFFFFF;
+    color: #193D50;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+#map-stage-number {
+    color: #71818A;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================
+   JAPAN MAP - PREFECTURE INTERACTION
+===================================== */
+
+#japan-map .geolonia-svg-map {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#japan-map .prefecture {
+    fill: #FFFFFF;
+    stroke: #A9C7D5;
+    stroke-width: 1.2;
+    transition:
+        fill 0.2s ease,
+        stroke 0.2s ease,
+        opacity 0.2s ease;
+    cursor: pointer;
+}
+
+#japan-map .prefecture:hover {
+    fill: #A9C7D5;
+    stroke: #193D50;
+    stroke-width: 2;
+}
+
+#japan-map .prefecture:active {
+    fill: #527D91;
+}
+
+#japan-map .boundary-line {
+    stroke: #D8E1E6;
+}
+
+
+#japan-stage {
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+#japan-map {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+#japan-map svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* =====================================
+   MOUNTAIN STAGE
+===================================== */
+
+#mountain-stage {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            145deg,
+            #F4F7F8 0%,
+            #DCE8ED 55%,
+            #A9C7D5 100%
+        );
+}
+
+#mountain-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mountain-overlay {
+    position: absolute;
+    left: 28px;
+    bottom: 28px;
+    z-index: 10;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid #D8E1E6;
+    backdrop-filter: blur(10px);
+}
+
+.mountain-overlay span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #527D91;
+}
+
+.mountain-overlay h3 {
+    margin-top: 8px;
+    color: #193D50;
+    font-size: 22px;
+}
+
+
+
+/* =====================================
+   SNOW MAP - 3D MOUNTAIN CANVAS
+===================================== */
+
+#mountain-stage {
+    position: relative;
+    overflow: hidden;
+    background: #EAF0F3;
+}
+
+#mountain-view {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+}
+
+#mountain-view:active {
+    cursor: grabbing;
+}
+
+#mountain-view canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mountain-overlay {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 10;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #D8E1E6;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+
+.mountain-overlay span {
+    color: #527D91;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.mountain-overlay h3 {
+    color: #193D50;
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   SNOW MAP - RESORT MARKERS
+===================================== */
+
+.snow-marker-wrapper {
+    background: transparent;
+    border: none;
+}
+
+.snow-pin {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #193D50;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    box-shadow:
+        0 2px 8px rgba(25, 61, 80, 0.35);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
+}
+
+.snow-pin span {
+    width: 5px;
+    height: 5px;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.snow-pin:hover {
+    transform: scale(1.3);
+    background: #527D91;
+}
+
+.snow-pin.selected {
+    transform: scale(1.4);
+    background: #A9C7D5;
+
+    box-shadow:
+        0 0 0 5px rgba(82, 125, 145, 0.2),
+        0 3px 10px rgba(25, 61, 80, 0.35);
+}
+
+.snow-pin.selected span {
+    background: #193D50;
+}
+
+
+/* =====================================
+   SNOW MAP - SMOOTH MOUNTAIN TRANSITION
+===================================== */
+
+#mountain-stage:not([hidden]) {
+    animation: mountainReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes mountainReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.035) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =====================================
+   SNOW MAP - VISUAL REFINEMENT 01
+   ALPINE ICE × NAVY
+===================================== */
+
+/* カラーを統一 */
+:root {
+    --green: #193D50;
+    --green-light: #527D91;
+    --cream: #F4F7F8;
+    --gray: #71818A;
+    --line: #D8E1E6;
+
+    --snow-white: #F4F7F8;
+    --pure-snow: #FFFFFF;
+    --ice-gray: #EAF0F3;
+    --glacier-gray: #DCE8ED;
+    --ice-blue: #A9C7D5;
+    --alpine-navy: #193D50;
+    --slate-blue: #527D91;
+    --text-main: #26343C;
+    --text-sub: #71818A;
+    --border: #D8E1E6;
+
+    --map-shadow: 0 18px 45px rgba(25, 61, 80, 0.09);
+    --panel-radius: 8px;
+}
+
+/* 全体 */
+body {
+    background: var(--snow-white);
+    color: var(--text-main);
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3 {
+    color: var(--alpine-navy);
+}
+
+::selection {
+    background: var(--ice-blue);
+    color: var(--alpine-navy);
+}
+
+/* ヘッダー */
+.header {
+    background: rgba(244, 247, 248, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(216, 225, 230, 0.8);
+}
+
+.logo {
+    color: var(--alpine-navy);
+    letter-spacing: -1.2px;
+}
+
+.logo span {
+    color: var(--ice-blue);
+}
+
+.nav a {
+    color: var(--text-main);
+    transition: color 0.25s ease;
+}
+
+.nav a:hover {
+    color: var(--slate-blue);
+}
+
+/* ボタン */
+.header-button,
+.primary-button {
+    background: var(--alpine-navy);
+    color: white;
+    border: 1px solid var(--alpine-navy);
+    transition: all 0.3s ease;
+}
+
+.header-button:hover,
+.primary-button:hover {
+    background: var(--slate-blue);
+    border-color: var(--slate-blue);
+    transform: translateY(-2px);
+}
+
+/* セクション */
+.section {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.map-section {
+    background:
+        linear-gradient(
+            180deg,
+            #F4F7F8 0%,
+            #EAF0F3 100%
+        );
+}
+
+.section-heading {
+    margin-bottom: 48px;
+}
+
+.section-heading h2 {
+    letter-spacing: -0.04em;
+}
+
+.eyebrow {
+    color: var(--slate-blue);
+    letter-spacing: 3px;
+}
+
+/* 地域選択パネル */
+.filter-panel {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(25, 61, 80, 0.045);
+    padding: 28px 20px;
+}
+
+.filter-panel h3 {
+    color: var(--alpine-navy);
+    letter-spacing: 2px;
+}
+
+.filter-subtitle {
+    color: var(--text-sub);
+}
+
+.region-list {
+    gap: 6px;
+}
+
+.region-button {
+    border-radius: 5px;
+    padding: 12px 13px;
+    color: var(--text-main);
+    transition: all 0.25s ease;
+}
+
+.region-button:hover {
+    background: var(--ice-gray);
+    color: var(--alpine-navy);
+    transform: translateX(3px);
+}
+
+.region-button.active {
+    background: var(--alpine-navy);
+    color: white;
+    box-shadow: 0 4px 12px rgba(25, 61, 80, 0.18);
+}
+
+/* マップ全体 */
+.map-container {
+    background: var(--ice-gray);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--map-shadow);
+    overflow: hidden;
+}
+
+/* マップ上部 */
+.map-topbar {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+}
+
+.map-label {
+    color: var(--alpine-navy);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.map-subtitle {
+    color: var(--text-sub);
+}
+
+#resort-count {
+    color: var(--slate-blue);
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 詳細パネル */
+.detail-panel {
+    background: var(--pure-snow);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(25, 61, 80, 0.045);
+}
+
+.detail-panel h3 {
+    color: var(--alpine-navy);
+}
+
+.detail-region {
+    color: var(--slate-blue);
+}
+
+.detail-stat strong {
+    color: var(--alpine-navy);
+}
+
+.detail-divider {
+    background: var(--border);
+}
+
+.official-button {
+    background: var(--alpine-navy);
+    color: white;
+    border-radius: 5px;
+    transition: background 0.25s ease;
+}
+
+.official-button:hover {
+    background: var(--slate-blue);
+}
+
+/* スキー場カード */
+.resort-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(25, 61, 80, 0.035);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.resort-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--map-shadow);
+}
+
+.resort-region,
+.resort-stats span {
+    color: var(--text-sub);
+}
+
+.resort-name {
+    color: var(--alpine-navy);
+}
+
+.resort-stats strong {
+    color: var(--alpine-navy);
+}
+
+/* 入力欄 */
+input,
+select {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-main);
+    border-radius: 5px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid rgba(169, 199, 213, 0.5);
+    border-color: var(--slate-blue);
+}
+
+/* ABOUT */
+.about-section {
+    background: var(--alpine-navy);
+    color: white;
+}
+
+.about-section h2 {
+    color: white;
+}
+
+.about-section .eyebrow {
+    color: var(--ice-blue);
+}
+
+/* フッター */
+.footer {
+    background: #122F40;
+    color: white;
+}
+
+.footer .logo {
+    color: white;
+}
+
+/* スマートフォン */
+@media (max-width: 900px) {
+    .section {
+        padding: 80px 6%;
+    }
+
+    .filter-panel,
+    .detail-panel {
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 65px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* =====================================
+   SNOW MAP - MAP INTERFACE 02
+===================================== */
+
+/* マップ上部の情報バー */
+.map-topbar {
+    min-height: 78px;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid #D8E1E6;
+}
+
+.map-label {
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #193D50;
+}
+
+.map-subtitle {
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #71818A;
+}
+
+/* 表示件数 */
+#resort-count {
+    padding: 9px 13px;
+    border-radius: 30px;
+    background: #EAF0F3;
+    color: #193D50;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* 地図の背景 */
+#map {
+    background-color: #EAF0F3;
+}
+
+/* 地図操作ボタン */
+.leaflet-control-zoom {
+    border: 1px solid #D8E1E6 !important;
+    border-radius: 7px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(25, 61, 80, 0.12) !important;
+}
+
+.leaflet-control-zoom a {
+    width: 34px !important;
+    height: 34px !important;
+    line-height: 34px !important;
+
+    color: #193D50 !important;
+    background: #FFFFFF !important;
+    border-color: #D8E1E6 !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: #EAF0F3 !important;
+}
+
+/* スキー場マーカー */
+.snow-marker-wrapper {
+    background: transparent;
+    border: none;
+}
+
+.snow-pin {
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    background: #193D50;
+
+    box-shadow:
+        0 2px 8px rgba(25, 61, 80, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.snow-marker-wrapper:hover .snow-pin {
+    transform: scale(1.3);
+    background: #527D91;
+}
+
+.snow-pin.selected {
+    transform: scale(1.45);
+    background: #A9C7D5;
+
+    box-shadow:
+        0 0 0 5px rgba(82, 125, 145, 0.2),
+        0 3px 10px rgba(25, 61, 80, 0.3);
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+    .map-topbar {
+        min-height: 68px;
+        padding: 14px;
+    }
+
+    .map-label {
+        font-size: 9px;
+    }
+
+    .map-subtitle {
+        font-size: 8px;
+    }
+
+    #resort-count {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+}
+
+/* =====================================
+   RESORT COURSE MAP
+===================================== */
+
+.course-map-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #EAF0F3;
+    overflow: auto;
+}
+
+.course-map-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 620px;
+    object-fit: contain;
+    background: #FFFFFF;
+    border: 1px solid #D8E1E6;
+    box-shadow: 0 8px 28px rgba(25, 61, 80, 0.08);
+}
+
+.course-map-source {
+    width: 100%;
+    margin: 0;
+    color: #71818A;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.course-map-error {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #71818A;
+    text-align: center;
+}
+
+.course-map-error a {
+    color: #193D50;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .course-map-wrapper {
+        padding: 12px;
+    }
+
+    .course-map-image {
+        max-height: none;
+    }
+}
+
+/* =====================================
+   COURSE MAP - LARGE DISPLAY
+===================================== */
+
+.course-map-wrapper {
+    width: 100%;
+    min-height: 500px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #EAF0F3;
+    overflow: auto;
+}
+
+.course-map-guide {
+    width: 100%;
+    margin: 0;
+    color: #71818A;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.course-map-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: #FFFFFF;
+    cursor: zoom-in;
+    box-shadow: 0 5px 20px rgba(25, 61, 80, 0.12);
+}
+
+.course-map-image {
+    display: block;
+    width: 100%;
+    max-height: 700px;
+    object-fit: contain;
+}
+
+.course-map-source {
+    width: 100%;
+    margin: 0;
+    color: #71818A;
+    font-size: 10px;
+    text-align: right;
+}
+
+/* 拡大画面 */
+
+.course-map-dialog {
+    width: 96vw;
+    max-width: 1500px;
+    height: 94vh;
+    max-height: 94vh;
+    padding: 0;
+    border: 1px solid #D8E1E6;
+    border-radius: 8px;
+    background: #F4F7F8;
+    overflow: hidden;
+}
+
+.course-map-dialog::backdrop {
+    background: rgba(10, 25, 35, 0.88);
+    backdrop-filter: blur(5px);
+}
+
+.course-map-viewer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-map-viewer-header {
+    min-height: 58px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D8E1E6;
+    color: #193D50;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.course-map-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #EAF0F3;
+    color: #193D50;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.course-map-viewer-content {
+    flex: 1;
+    min-height: 0;
+    padding: 20px;
+    overflow: auto;
+    text-align: center;
+}
+
+#course-map-large-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.course-map-viewer-guide {
+    margin: 0;
+    padding: 10px;
+    color: #71818A;
+    font-size: 10px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    .course-map-dialog {
+        width: 100vw;
+        height: 100dvh;
+        max-height: 100dvh;
+        border-radius: 0;
+    }
+
+    .course-map-viewer-content {
+        padding: 10px;
+    }
+
+    .course-map-image {
+        max-height: 550px;
+    }
+}
+
+/* PDF COURSE MAP VIEWER */
+
+.course-map-pdf {
+    width: 100%;
+    height: 75vh;
+    border: none;
+    background: #fff;
+}
+
+.course-map-viewer {
+    width: 85vw;
+    max-width: 1100px;
+    background: #fff;
+    padding: 20px;
+}
+
+.course-map-viewer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.course-map-close {
+    padding: 8px 16px;
+    border: none;
+    background: #193D50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.course-map-dialog {
+    width: fit-content;
+    max-width: 95vw;
+    max-height: 95vh;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.course-map-dialog::backdrop {
+    background: rgba(10, 25, 35, 0.8);
+}
+
+@media (max-width: 600px) {
+    .course-map-viewer {
+        width: 90vw;
+        padding: 12px;
+    }
+
+    .course-map-pdf {
+        height: 70vh;
+    }
+}
+
+/* UNIFIED COURSE MAP DISPLAY */
+
+.course-map-wrapper {
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.course-map-image-button {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.course-map-image {
+    display: block;
+    width: 100%;
+    max-height: 65vh;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid #D8E1E6;
+    box-shadow: 0 8px 24px rgba(25, 61, 80, 0.08);
+}
+
+.course-map-guide,
+.course-map-source {
+    color: #71818A;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.course-map-error {
+    color: #71818A;
+    text-align: center;
+    padding: 40px 20px;
+}
